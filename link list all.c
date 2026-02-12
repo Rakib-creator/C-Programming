@@ -59,6 +59,32 @@ void delb()
 
 void delm(int a)
 {
+ ss *temp=malloc(sizeof(ss));
+ temp=head;
+ while(temp->next->id!=a)
+ {
+     temp=temp->next;
+ }
+ if(temp!=NULL)
+ { ss *temp2=malloc(sizeof(ss));
+   temp2=temp->next;
+   temp->next=temp->next->next;
+   free(temp2);
+ }
+}
+
+void dell()
+{
+ ss *temp=malloc(sizeof(ss));
+ temp=head;
+ while(temp->next->next!=NULL)
+ {
+     temp=temp->next;
+ }
+ ss *temp2=malloc(sizeof(ss));
+   temp2=temp->next;
+   temp->next=NULL;
+   free(temp2);
 
 }
 
@@ -79,6 +105,7 @@ int main()
     insl(20);
     insl(40);
     insl(100);
-    delb();
+    dell();
+    //delm(100);
     display();
 }
